@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"></html>>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+   <h2>
+    To-Do List
+   </h2> 
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Task Description
+                </th>
+                <th>
+                    Task Priority
+                </th>
+                <th>
+                    Current Status
+                </th>
+                <th>
+                    Task Due Date
+                </th>
+                <th>
+                    Task Category
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each"task:${tasks}">
+
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>
