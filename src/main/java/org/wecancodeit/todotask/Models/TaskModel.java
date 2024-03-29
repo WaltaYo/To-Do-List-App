@@ -10,7 +10,7 @@ public class TaskModel {
     
     @Id
     @GeneratedValue
-    private Long taskID;
+    private Long taskId;
     private String description;
     private boolean status;
     private PriorityEnum priority;
@@ -46,8 +46,8 @@ public class TaskModel {
      * 
      * @return TaskID
      */
-    public Long getTaskID() {
-        return taskID;
+    public Long getTaskId() {
+        return taskId;
     }
 
     // public void setTaskID(Long taskID) {
@@ -104,7 +104,7 @@ public class TaskModel {
      */
     @Override
     public String toString() {
-        return "TaskModel [taskID=" + taskID + ", description=" + description + ", status=" + status + ", priority="
+        return "TaskModel [taskID=" + taskId + ", description=" + description + ", status=" + status + ", priority="
                 + priority + ", category=" + category + ", dueDate=" + dueDate + "]";
     }
 

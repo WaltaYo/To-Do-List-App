@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+  <form action=" "th:action="@{/}" th:object="${task}"method="post">
+   <label>Description</label> 
+   <input type="text" th:value="*{Description}">
+    
+    
+    <button type="submit">Save</button>
+  </form>
+</body>
+</html>

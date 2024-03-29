@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <header>Detail</header> 
+    <label th:text = "${task.description}"></label><br>
+    <label>PRIORITY</label>
+    <label th:text = "${task.priority}"></label><br>
+    <label>Current Status</label>
+    <label th:text = "${task.status}"></label><br>
+    <label>Task Due Date</label>
+    <label th:text = "${task.dueDate}"></label><br>
+    <label>Task Category</label>
+    <label th:text = "${task.category}"></label><br>
+    <a th:href="@{confirmDelete/{id}(id=${task.taskId})}" class="confirmButton"> Confirm?</a>
+    <a th:href="@{/}" class="cancelButton"> Cancel </a>
+    <button>Go Back<a href = "index.html"></a></button>
+
+</body>
+</html>
