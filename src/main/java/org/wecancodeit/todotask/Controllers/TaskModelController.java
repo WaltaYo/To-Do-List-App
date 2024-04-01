@@ -2,10 +2,16 @@ package org.wecancodeit.todotask.Controllers;
 
 import jakarta.annotation.Resource;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.wecancodeit.todotask.Models.TaskDto;
 import org.wecancodeit.todotask.Models.TaskModel;
+import org.wecancodeit.todotask.Models.Enums.CategoryEnum;
+import org.wecancodeit.todotask.Models.Enums.PriorityEnum;
 import org.wecancodeit.todotask.Services.TaskModelService;
 
 /**
@@ -46,28 +52,53 @@ public class TaskModelController {
    * 
    * @param id
    * 
-   * @return  detail.html about specific task by iD
+   * @return detail.html about specific task by iD
    */
   @GetMapping("{id}")
   public String getTask(@PathVariable Long id, Model model) {
     TaskModel task = taskModelService.findById(id);
     model.addAttribute("task", task);
-    return "detail"; 
+    return "detail";
   }
 
   /**
    * Method to edit task
-   * @param id selects task to be edited by iD
+   * 
+   * @param id    selects task to be edited by iD
    * @param model
    * @return
    */
-  @GetMapping("edit/{id}")
-  public String editTask(@PathVariable Long id, Model model) {
-    TaskModel task = taskModelService.findById(id);
+
+  @GetMapping("create")
+  public String createTask(Model model) {
+    TaskDto task = new TaskDto();
     model.addAttribute("task", task);
+
+    List<String> lstCategory = enumToList(CategoryEnum.class);
+    model.addAttribute("lstCategory", lstCategory);
+
+    List<String> lstPriority = enumToList(PriorityEnum.class);
+    model.addAttribute("lstPriority", lstPriority);
     return "edit";
   }
- 
+
+  @GetMapping("edit/{id}")
+  public String editTask(@PathVariable Long id, Model model) {
+    // find task by task id
+    TaskModel tasks = taskModelService.findById(id);
+
+    // put task into TaskDTO
+    TaskDto task = new TaskDto(tasks);
+    model.addAttribute("task", task);
+
+    List<String> lstCategory = enumToList(CategoryEnum.class);
+    model.addAttribute("lstCategory", lstCategory);
+
+    List<String> lstPriority = enumToList(PriorityEnum.class);
+    model.addAttribute("lstPriority", lstPriority);
+    return "edit";
+  }
+
   @GetMapping("delete/{id}")
   public String deleteTask(@PathVariable Long id, Model model) {
     TaskModel task = taskModelService.findById(id);
@@ -79,48 +110,22 @@ public class TaskModelController {
   public String confirmDeleteTask(@PathVariable Long id) {
     taskModelService.deleteTask(id);
     return "redirect:/";
-  } 
-  
+  }
+
   @PostMapping
-  public String saveTask(@ModelAttribute("task") TaskModel task) {
-    taskModelService.saveTask(task);
+  public String saveTask(@ModelAttribute("task") TaskDto task) {
+    taskModelService.saveTask(task.CopyTask());
     return "redirect:/";
   }
 
-  /**
-   * Method to add a new task
-   * 
-   * @param taskModel
-   * 
-   * @return new task added
-   */
-  @PostMapping
-  public TaskModel addTask(@RequestBody TaskModel taskModel) {
-    return taskModelService.saveTask(taskModel);
+  // convert enum to Strings, so we have a list
+  public <T extends Enum<T>> List<String> enumToList(Class<T> class1) {
+    List<String> list = new ArrayList<>();
+    T[] enumConstants = class1.getEnumConstants();
+    for (T enumConstant : enumConstants) {
+      list.add(enumConstant.name());
+    }
+    return list;
   }
-
-  /**
-   * Method to update existing task
-   * 
-   * @param taskModel
-   * 
-   * @return
-   */
-  @PutMapping()
-  public TaskModel updateTask(@RequestBody TaskModel taskModel) {
-    return taskModelService.saveTask(taskModel);
-  }
-
-  // /**
-  // * Method to delete task
-  // *
-  // * @param id
-  // *
-  // * @return true when task is deleted
-  // */
-  // @DeleteMapping("{id}")
-  // public boolean deleteTask(@PathVariable Long id){
-  // return taskModelService.deleteTask(id);
-  // }
 
 }

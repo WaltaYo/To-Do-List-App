@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
-    <link th:href="@{/src/main/resources/static/css/index.css}" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
 </head>
-
+  <div class="header">
+    <h1>To-Do List</h1>
+  </div>
 <body>
-    <h2>
-        To-Do List
-    </h2>
+ 
+    <a th:href="@{/create}"> Create </a>
     <table>
         <thead>
             <tr>

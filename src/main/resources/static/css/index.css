@@ -1,3 +1,27 @@
-body {
-    background-color: blue;
+/* body {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 2fr 2fr 2fr;
+    grid-auto-rows: auto;
+    box-shadow: 100px red;
+    background-color: rgb(154, 234, 241);
+    border: double black;
+} */
+
+
+
+.header{
+  padding: 5px;
+  text-align: center;
+  background: #450101;
+  color: white;
+  font-size: 10px;
+  border-radius: 20px;
+}
+
+body{
+   
+    display: flexbox;
+    background-color: blanchedalmond;
+    border-bottom: groove rgb(228, 169, 9) 10px;
+
 }

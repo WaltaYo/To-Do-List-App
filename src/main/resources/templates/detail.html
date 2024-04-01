@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
 </head>
 <body>
-    Detail
+    <div class="header">
+        <h1>Detail</h1>
+      </div>
+      
     <label>DESCRIPTION</label>
     <label th:text = "${task.description}"></label><br>
     <label>PRIORITY</label>
@@ -17,7 +21,7 @@
     <label th:text = "${task.dueDate}"></label><br>
     <label>Task Category</label>
     <label th:text = "${task.category}"></label><br>
-    <button>Go Back<a href = "index.html"></a></button>
+    <button><a th:href="@{/}" class="cancelButton"> Go Back </a></button>
 
 </body>
 </html>

@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Confirm/Delete</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
 </head>
+<div class="header">
+    <h1>Delete???</h1>
+  </div>
 <body>
    <header>Detail</header> 
     <label th:text = "${task.description}"></label><br>
@@ -17,8 +21,9 @@
     <label>Task Category</label>
     <label th:text = "${task.category}"></label><br>
     <a th:href="@{confirmDelete/{id}(id=${task.taskId})}" class="confirmButton"> Confirm?</a>
-    <a th:href="@{/}" class="cancelButton"> Cancel </a>
-    <button>Go Back<a href = "index.html"></a></button>
+    <button><a th:href="@{/}" class="cancelButton"> Cancel </a></button>
+  
+   
 
 </body>
 </html>

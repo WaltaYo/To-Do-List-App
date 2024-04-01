@@ -1,5 +1,7 @@
 package org.wecancodeit.todotask;
 
+import java.time.LocalDate;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.wecancodeit.todotask.Models.TaskModel;
@@ -23,16 +25,16 @@ public class Populator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-       TaskModel taskModel = new TaskModel("Call the plumber", false, PriorityEnum.THISWEEK, CategoryEnum.HOME, null);
+       TaskModel taskModel = new TaskModel("Call the plumber", false, PriorityEnum.THISWEEK, CategoryEnum.HOME, LocalDate.now());
        taskModelService.saveTask(taskModel);
 
-       TaskModel taskModel2 = new TaskModel("finish assignment", false, PriorityEnum.EOD, CategoryEnum.WORK, null);
+       TaskModel taskModel2 = new TaskModel("finish assignment", false, PriorityEnum.EOD, CategoryEnum.WORK, LocalDate.now());
        taskModelService.saveTask(taskModel2);
 
-       TaskModel taskModel3 = new TaskModel("buy bday card", false, PriorityEnum.WEEKEND, CategoryEnum.SOCIAL_LIFE, null);
+       TaskModel taskModel3 = new TaskModel("buy bday card", false, PriorityEnum.WEEKEND, CategoryEnum.SOCIAL_LIFE, LocalDate.now());
        taskModelService.saveTask(taskModel3);
 
-       TaskModel taskModel4 = new TaskModel("research pet foods", false, PriorityEnum.OPEN_ENDED, CategoryEnum.PETS, null);
+       TaskModel taskModel4 = new TaskModel("research pet foods", false, PriorityEnum.OPEN_ENDED, CategoryEnum.PETS, LocalDate.now());
        taskModelService.saveTask(taskModel4);
     }
 

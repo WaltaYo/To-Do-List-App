@@ -1,5 +1,6 @@
 package org.wecancodeit.todotask.Models;
 
+import java.time.LocalDate;
 import java.util.*;
 import org.wecancodeit.todotask.Models.Enums.*;
 import jakarta.persistence.*;
@@ -15,7 +16,7 @@ public class TaskModel {
     private boolean status;
     private PriorityEnum priority;
     private CategoryEnum category;
-    private Date dueDate;
+    private LocalDate dueDate = LocalDate.now();
 
     
     /**
@@ -33,7 +34,7 @@ public class TaskModel {
      * @param category
      * @param dueDate
      */
-    public TaskModel(String description, boolean status, PriorityEnum priority, CategoryEnum category, Date dueDate) {
+    public TaskModel(String description, boolean status, PriorityEnum priority, CategoryEnum category, LocalDate dueDate) {
         this.description = description;
         this.status = status;
         this.priority = priority;
@@ -50,9 +51,9 @@ public class TaskModel {
         return taskId;
     }
 
-    // public void setTaskID(Long taskID) {
-    // this.taskID = taskID;
-    // }
+    public void setTaskID(Long taskId) {
+    this.taskId = taskId;
+    }
 
     /**
      * Method that gets the description
@@ -95,7 +96,7 @@ public class TaskModel {
      * 
      * @return
      */
-    public Date getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 

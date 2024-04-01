@@ -3,14 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit</title>
+    <title class="header">Edit</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
 </head>
+
+<div class="header">
+  <h1>Edit</h1>
+</div>
+
 <body>
   <form action=" "th:action="@{/}" th:object="${task}"method="post">
+    <input type = "hidden" th:field="*{taskId}"/>
    <label>Description</label> 
-   <input type="text" th:value="*{Description}">
+   <input type="text" th:value="*{Description}"><br>
     
+    <label>Category</label>
+    <select th:field="*{category}">
+    <option th:each="p : ${lstCategory}" th:value ="${p}" th:text="${p}"/>
+    </select><br>
+
+
+
+    <label>Status</label>
+    <input type ="checkbox" th:field="*{status}"><br>
+
     
+    <label>Priority</label>
+    <select th:field="*{priority}"> 
+      <option th:each="p : ${lstPriority}" th:value ="${p}" th:text="${p}"/>
+
+    <option th:value="${p}" th:text="${p}"/>
+  
+
+    <select th:field="*{category}"th:value="${p}" th:text="${p}"/>
+    </select><br>
+
+    <label>dueDate</label>
+    <input type= "date" th:field="*{dueDate}"><br>
+
     <button type="submit">Save</button>
   </form>
 </body>
