@@ -47,7 +47,7 @@ public class TaskModelService {
 
     /**
      * Method to find task by id
-     * @param id2 
+     * @param id
      * 
      * @return task by id
      */

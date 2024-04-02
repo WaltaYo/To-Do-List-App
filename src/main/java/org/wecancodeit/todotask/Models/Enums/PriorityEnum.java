@@ -6,6 +6,6 @@ public enum PriorityEnum {
     TODAY,
     THISWEEK,
     WEEKEND,
-    OPEN_ENDED
+    OPEN
     
 }

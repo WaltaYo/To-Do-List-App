@@ -6,6 +6,6 @@ public enum CategoryEnum {
     HOME,
     BILLS,
     PETS,
-    SOCIAL_LIFE
+    SOCIAL
 
 }

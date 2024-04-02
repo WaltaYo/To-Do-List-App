@@ -4,26 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirm/Delete</title>
-    <link rel="stylesheet" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" th:href="@{/css/index.css}"/>
+ 
 </head>
-<div class="header">
+
     <h1>Delete???</h1>
-  </div>
+ 
 <body>
-   <header>Detail</header> 
-    <label th:text = "${task.description}"></label><br>
-    <label>PRIORITY</label>
+   <strong>Detail: </strong>
+   <label th:text = "${task.description}"></label><br>
+    <strong><label>Priority: </label></strong>
     <label th:text = "${task.priority}"></label><br>
-    <label>Current Status</label>
+    <strong><label>Completed: </label></strong>
     <label th:text = "${task.status}"></label><br>
-    <label>Task Due Date</label>
+   <strong><label>Due Date: </label></strong>
     <label th:text = "${task.dueDate}"></label><br>
-    <label>Task Category</label>
+    <Strong><label>Category: </label></Strong>
     <label th:text = "${task.category}"></label><br>
-    <a th:href="@{confirmDelete/{id}(id=${task.taskId})}" class="confirmButton"> Confirm?</a>
-    <button><a th:href="@{/}" class="cancelButton"> Cancel </a></button>
+   <button type="button" name="button" id="confirm"><a th:href="@{confirmDelete/{id}(id=${task.taskId})}" class="confirmButton"> Confirm?</a></button>
+    <button id="cancel"><a th:href="@{/}" class="cancelButton"> Cancel </a></button>
   
-   
+      <script type="text/javascript" th:src="@{/js/index.js}"></script>
 
 </body>
 </html>

@@ -8,15 +8,16 @@
 </head>
 
 <div class="header">
-  <h1>Edit</h1>
+  <h1>Edit/ADD</h1>
 </div>
+
+<header><strong>Edit</strong></header> 
 
 <body>
   <form action=" "th:action="@{/}" th:object="${task}"method="post">
     <input type = "hidden" th:field="*{taskId}"/>
    <label>Description</label> 
-   <input type="text" th:value="*{Description}"><br>
-    
+    <input type="text" th:field="*{Description}">
     <label>Category</label>
     <select th:field="*{category}">
     <option th:each="p : ${lstCategory}" th:value ="${p}" th:text="${p}"/>
@@ -38,10 +39,12 @@
     <select th:field="*{category}"th:value="${p}" th:text="${p}"/>
     </select><br>
 
-    <label>dueDate</label>
+    <label>Due Date</label>
     <input type= "date" th:field="*{dueDate}"><br>
 
     <button type="submit">Save</button>
+
+    <button><a th:href="@{/}" class="cancelButton"> Cancel </a></button>
   </form>
 </body>
 </html>

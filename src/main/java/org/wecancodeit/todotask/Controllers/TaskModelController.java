@@ -68,11 +68,11 @@ public class TaskModelController {
    * @param model
    * @return
    */
-
+ 
   @GetMapping("create")
   public String createTask(Model model) {
-    TaskDto task = new TaskDto();
-    model.addAttribute("task", task);
+    TaskDto taskDto = new TaskDto();
+    model.addAttribute("task", taskDto);
 
     List<String> lstCategory = enumToList(CategoryEnum.class);
     model.addAttribute("lstCategory", lstCategory);
@@ -85,11 +85,11 @@ public class TaskModelController {
   @GetMapping("edit/{id}")
   public String editTask(@PathVariable Long id, Model model) {
     // find task by task id
-    TaskModel tasks = taskModelService.findById(id);
+    TaskModel task = taskModelService.findById(id);
 
     // put task into TaskDTO
-    TaskDto task = new TaskDto(tasks);
-    model.addAttribute("task", task);
+    TaskDto taskDto = new TaskDto(task);
+    model.addAttribute("task", taskDto);
 
     List<String> lstCategory = enumToList(CategoryEnum.class);
     model.addAttribute("lstCategory", lstCategory);
@@ -98,6 +98,7 @@ public class TaskModelController {
     model.addAttribute("lstPriority", lstPriority);
     return "edit";
   }
+
 
   @GetMapping("delete/{id}")
   public String deleteTask(@PathVariable Long id, Model model) {
@@ -112,7 +113,7 @@ public class TaskModelController {
     return "redirect:/";
   }
 
-  @PostMapping
+  @PostMapping()
   public String saveTask(@ModelAttribute("task") TaskDto task) {
     taskModelService.saveTask(task.CopyTask());
     return "redirect:/";

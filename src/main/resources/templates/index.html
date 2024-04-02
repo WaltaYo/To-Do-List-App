@@ -5,31 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
-    <link rel="stylesheet" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" th:href="@{/css/index.css}"/>
+    <script type="text/javascript" th:src="@{/js/index.js}"></script>
 </head>
-  <div class="header">
-    <h1>To-Do List</h1>
-  </div>
+  
 <body>
- 
-    <a th:href="@{/create}"> Create </a>
+  <h1>To-Do List</h1>
+<div class="haha"><a th:href="@{/create}"> <h11>New Task</h11></a></div>  
+   
     <table>
         <thead>
             <tr>
                 <th>
-                    Task Description
+                    Description
                 </th>
                 <th>
-                    Task Priority
+                    Priority
                 </th>
                 <th>
-                    Current Status
+                 Status
                 </th>
                 <th>
-                    Task Due Date
+                   Date
                 </th>
                 <th>
-                    Task Category
+                   Category
                 </th>
             </tr>
         </thead>
@@ -40,9 +40,9 @@
                 <td th:text="${task.status}"></td>
                 <td th:text="${task.dueDate}"></td>
                 <td th:text="${task.category}"></td>
-                <td><a th:href="@{/{id}(id=${task.taskId})}">Detail</a></td>
-                <td><a th:href="@{edit/{id}(id=${task.taskId})}">Edit</a></td>
-                <td><a th:href="@{delete/{id}(id=${task.taskId})}">Delete</a></td>
+                <td><button><a th:href="@{/{id}(id=${task.taskId})}">Detail</a></td></button>
+                <td><button><a th:href="@{edit/{id}(id=${task.taskId})}">Edit</a></td></button>
+                <td><button><a th:href="@{delete/{id}(id=${task.taskId})}">Delete</a></td></button>
             </tr>
         </tbody>
     </table>

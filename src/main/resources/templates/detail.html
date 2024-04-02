@@ -10,16 +10,18 @@
     <div class="header">
         <h1>Detail</h1>
       </div>
-      
-    <label>DESCRIPTION</label>
+
+      <header><strong>More Details</strong></header> 
+
+    <label>Decription: </label>
     <label th:text = "${task.description}"></label><br>
-    <label>PRIORITY</label>
+    <label>Priority: </label>
     <label th:text = "${task.priority}"></label><br>
-    <label>Current Status</label>
+    <label>Current Status: </label>
     <label th:text = "${task.status}"></label><br>
-    <label>Task Due Date</label>
+    <label>Due Date: </label>
     <label th:text = "${task.dueDate}"></label><br>
-    <label>Task Category</label>
+    <label>Category: </label>
     <label th:text = "${task.category}"></label><br>
     <button><a th:href="@{/}" class="cancelButton"> Go Back </a></button>
 

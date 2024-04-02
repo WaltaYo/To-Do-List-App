@@ -31,10 +31,10 @@ public class Populator implements CommandLineRunner {
        TaskModel taskModel2 = new TaskModel("finish assignment", false, PriorityEnum.EOD, CategoryEnum.WORK, LocalDate.now());
        taskModelService.saveTask(taskModel2);
 
-       TaskModel taskModel3 = new TaskModel("buy bday card", false, PriorityEnum.WEEKEND, CategoryEnum.SOCIAL_LIFE, LocalDate.now());
+       TaskModel taskModel3 = new TaskModel("buy bday card", false, PriorityEnum.WEEKEND, CategoryEnum.SOCIAL, LocalDate.now());
        taskModelService.saveTask(taskModel3);
 
-       TaskModel taskModel4 = new TaskModel("research pet foods", false, PriorityEnum.OPEN_ENDED, CategoryEnum.PETS, LocalDate.now());
+       TaskModel taskModel4 = new TaskModel("research pet foods", false, PriorityEnum.OPEN, CategoryEnum.PETS, LocalDate.now());
        taskModelService.saveTask(taskModel4);
     }
 
