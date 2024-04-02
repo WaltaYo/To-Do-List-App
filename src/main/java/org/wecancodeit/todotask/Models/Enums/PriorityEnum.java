@@ -3,9 +3,12 @@ package org.wecancodeit.todotask.Models.Enums;
 public enum PriorityEnum {
     ASAP,
     EOD,
-    TODAY,
+    OPEN,
     THISWEEK,
+    TODAY,
     WEEKEND,
-    OPEN
+    LOW, 
+    MEDIUM,
+    HIGH
     
 }

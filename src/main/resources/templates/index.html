@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
+<container class="home"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
         <thead>
             <tr>
                 <th>
-                    Description
+                    Description 
                 </th>
                 <th>
                     Priority
@@ -31,6 +31,9 @@
                 <th>
                    Category
                 </th>
+                <th>  📒 </th>
+                <th> 📝 </th>
+                <th> ❗ </th>
             </tr>
         </thead>
         <tbody>
@@ -40,13 +43,14 @@
                 <td th:text="${task.status}"></td>
                 <td th:text="${task.dueDate}"></td>
                 <td th:text="${task.category}"></td>
-                <td><button><a th:href="@{/{id}(id=${task.taskId})}">Detail</a></td></button>
-                <td><button><a th:href="@{edit/{id}(id=${task.taskId})}">Edit</a></td></button>
+                <td><a th:href="@{/{id}(id=${task.taskId})}">Detail</a></td>
+                <td><a th:href="@{edit/{id}(id=${task.taskId})}">Edit</a></td>
                 <td><button><a th:href="@{delete/{id}(id=${task.taskId})}">Delete</a></td></button>
             </tr>
         </tbody>
     </table>
 
 </body>
+</container>
 
 </html>

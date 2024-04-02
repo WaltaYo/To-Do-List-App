@@ -1,11 +1,11 @@
 package org.wecancodeit.todotask.Models.Enums;
 
 public enum CategoryEnum {
-    MEDICAL,
-    WORK,
-    HOME,
+    APPOINTMENT,
     BILLS,
+    HOME,
+    MEDICAL,
     PETS,
-    SOCIAL
-
+    SOCIAL,
+    WORK
 }

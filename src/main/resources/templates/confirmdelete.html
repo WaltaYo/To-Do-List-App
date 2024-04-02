@@ -21,7 +21,7 @@
     <label th:text = "${task.dueDate}"></label><br>
     <Strong><label>Category: </label></Strong>
     <label th:text = "${task.category}"></label><br>
-   <button type="button" name="button" id="confirm"><a th:href="@{confirmDelete/{id}(id=${task.taskId})}" class="confirmButton"> Confirm?</a></button>
+   <button type="button" id="confirm"><a th:href="@{confirmDelete/{id}(id=${task.taskId})}" class="confirmButton"> Confirm?</a></button>
     <button id="cancel"><a th:href="@{/}" class="cancelButton"> Cancel </a></button>
   
       <script type="text/javascript" th:src="@{/js/index.js}"></script>
